@@ -16,12 +16,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {
-            
-            1 !== 2 && 'c12321321'.split("")
-          }
-          <Bottom name="9999999" fff={b} time={time}></Bottom>
-          <Acc c="89" />
+        <Bottom name="9999999" fff={b} time={time}></Bottom>
+        <Acc c="89" />
       </header>
     </div>
   );
@@ -44,10 +40,15 @@ function Acc(props) {
 class Fs extends React.Component  {
   constructor(props) {
     super()
+    this.refInput = React.createRef()
     this.state = { bb: 'state'}
+    this.sayHellow = this.sayHellow.bind(this)
     console.log('9999999999')
   }
-
+  sayHellow() {
+    console.log(`--DEBUG--this`,this)
+    alert('hellow')
+  }
   componentDidMount() {
     console.log(`--DEBUG--111我挂在了`,)
     // setInterval(() => {
@@ -68,7 +69,7 @@ class Fs extends React.Component  {
   render() {
     console.log(`--DEBUG--this.props.a`,this.props.ccc)
     return (
-      <div className="accc">{this.state.bb}Fsfffffffffff----{this.props.ccc}</div>
+      <div className="accc" ref={this.refInput} onClick={this.sayHellow}>{this.state.bb}Fsfffffffffff----{this.props.ccc}</div>
     )
   }
 }
